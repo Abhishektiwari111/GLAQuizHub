@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java final Keyword MCQ | Complete Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            background: linear-gradient(145deg, #1a0a0a 0%, #4a1a1a 100%);
+            min-height: 100vh;
+            padding: 1.8rem 1rem;
+        }
+
+        .quiz-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        .hero {
+            background: linear-gradient(135deg, #2a0a0a, #1a0505);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #ef4444;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #fecaca;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero h1 span {
+            background: #ef4444;
+            color: #1a0505;
+            padding: 0.1rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1.8rem;
+        }
+
+        .hero p {
+            color: #fca5a5;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .badge-item {
+            background: #3a1515;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            color: #fecaca;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* stats */
+        .stats {
+            background: #1a0a0acc;
+            backdrop-filter: blur(6px);
+            border-radius: 2rem;
+            padding: 0.7rem 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 1.8rem;
+            border: 1px solid #ef444455;
+        }
+
+        .stat-item {
+            background: #1a0505;
+            padding: 0.3rem 1.2rem;
+            border-radius: 3rem;
+            color: #fecaca;
+            font-weight: 600;
+        }
+
+        .stat-item span:first-child {
+            color: #ef4444;
+            margin-right: 6px;
+        }
+
+        .reset-btn {
+            background: #ef4444;
+            border: none;
+            padding: 0.4rem 1.4rem;
+            border-radius: 3rem;
+            font-weight: bold;
+            color: #1a0505;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .reset-btn:hover {
+            background: #dc2626;
+            transform: scale(0.96);
+        }
+
+        /* question cards */
+        .q-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .q-card {
+            background: #fffffffb;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            border-left: 7px solid #ef4444;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            transition: 0.2s;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+        }
+
+        .q-num {
+            background: #fee2e2;
+            color: #991b1b;
+            padding: 0.15rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.75rem;
+        }
+
+        .q-text {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a0505;
+            line-height: 1.5;
+        }
+
+        .code-block {
+            background: #1a0a0a;
+            color: #fecaca;
+            padding: 0.7rem 1.2rem;
+            border-radius: 1rem;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            margin: 10px 0 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            border-left: 3px solid #ef4444;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 8px 0 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f8fafd;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.12s;
+            border: 1px solid #e2e6ec;
+        }
+
+        .option:hover {
+            background: #fee2e2;
+            border-color: #ef4444;
+        }
+
+        input[type="radio"] {
+            accent-color: #ef4444;
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option label {
+            font-weight: 500;
+            color: #1a0505;
+            cursor: pointer;
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 10px 16px;
+            border-radius: 1rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .fb-correct {
+            background: #def3e2;
+            color: #136b3a;
+            border-left: 4px solid #2b9348;
+        }
+
+        .fb-wrong {
+            background: #ffe6e5;
+            color: #b91c1c;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .fb-neutral {
+            background: #f0f4f9;
+            color: #2c5a66;
+        }
+
+        .action-area {
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(100deg, #dc2626, #ef4444);
+            border: none;
+            padding: 0.9rem 2.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #ffffff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(100deg, #b91c1c, #dc2626);
+        }
+
+        .result-panel {
+            background: #fee2e2dd;
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: bold;
+            color: #1a0505;
+            margin-top: 0.5rem;
+            border: 1px solid #ef4444;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #fca5a5;
+        }
+
+        @media (max-width: 650px) {
+            .q-card {
+                padding: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-wrapper">
+    <div class="hero">
+        <h1>🔒 final Keyword <span>MCQ</span></h1>
+        <p>final Variables · final Methods · final Classes · Blank final · Static final</p>
+        <div class="badge-row">
+            <span class="badge-item">final variable</span>
+            <span class="badge-item">final method</span>
+            <span class="badge-item">final class</span>
+            <span class="badge-item">blank final</span>
+            <span class="badge-item">static final</span>
+            <span class="badge-item">final parameter</span>
+            <span class="badge-item">inheritance</span>
+            <span class="badge-item">immutability</span>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item"><span>🎯 Score</span> <span id="scoreDisplay">0</span> / <span id="totalQ">20</span></div>
+        <div class="stat-item"><span>✏️ Attempted</span> <span id="attemptedCount">0</span> / <span id="totalQ2">20</span></div>
+        <button class="reset-btn" id="resetBtn">⟳ Reset Quiz</button>
+    </div>
+
+    <div id="questionsContainer" class="q-grid"></div>
+
+    <div class="action-area">
+        <button class="submit-btn" id="submitBtn">✅ Submit & Check</button>
+    </div>
+    <div id="resultPanel" class="result-panel"></div>
+    <footer>💡 All questions focus on the final keyword — constants, inheritance restrictions, and immutability.</footer>
+</div>
+
+<script>
+    // ==================== 20 MCQs on final keyword ====================
+    const questions = [
+        { // 1
+            text: "What does the 'final' keyword mean when applied to a variable?",
+            code: "final int x = 10;",
+            options: [
+                "The variable can be changed later",
+                "The variable becomes a constant",
+                "The variable is stored in stack",
+                "The variable is thread-safe"
+            ],
+            correct: 1,
+            explanation: "A final variable cannot be reassigned after initialization — it becomes a constant."
+        },
+        { // 2
+            text: "What is a 'blank final' variable?",
+            code: "class Demo { final int x; }",
+            options: [
+                "A final variable that is never initialized",
+                "A final variable declared without initialization",
+                "A final variable with null value",
+                "A static final variable"
+            ],
+            correct: 1,
+            explanation: "A blank final is a final variable declared without initialization. It must be initialized in the constructor."
+        },
+        { // 3
+            text: "What happens when you try to reassign a final variable?",
+            code: "final int x = 5;\nx = 10;",
+            options: [
+                "The value changes to 10",
+                "Compilation error",
+                "Runtime exception",
+                "The value remains 5"
+            ],
+            correct: 1,
+            explanation: "Reassigning a final variable causes a compilation error."
+        },
+        { // 4
+            text: "What does 'final' mean when applied to a method?",
+            code: "class Parent { final void show() { } }",
+            options: [
+                "The method cannot be overridden",
+                "The method cannot be overloaded",
+                "The method is abstract",
+                "The method is static"
+            ],
+            correct: 0,
+            explanation: "A final method cannot be overridden by subclasses."
+        },
+        { // 5
+            text: "What does 'final' mean when applied to a class?",
+            code: "final class Test { }",
+            options: [
+                "The class cannot be instantiated",
+                "The class cannot be extended",
+                "The class becomes abstract",
+                "The class cannot have methods"
+            ],
+            correct: 1,
+            explanation: "A final class cannot be extended (no subclassing)."
+        },
+        { // 6
+            text: "Can a final variable be initialized in a constructor?",
+            code: "class Demo {\n    final int x;\n    Demo(int val) { x = val; }\n}",
+            options: [
+                "No, compilation error",
+                "Yes, in the constructor",
+                "Yes, but only in static blocks",
+                "No, must be initialized at declaration"
+            ],
+            correct: 1,
+            explanation: "Blank final variables must be initialized in every constructor of the class."
+        },
+        { // 7
+            text: "What is the output?",
+            code: "class Test {\n    final int x = 10;\n    public static void main(String[] args) {\n        Test t = new Test();\n        System.out.println(t.x);\n    }\n}",
+            options: ["0", "10", "Compilation error", "null"],
+            correct: 1,
+            explanation: "Final variable x is initialized to 10 and prints correctly."
+        },
+        { // 8
+            text: "Can a final method be overloaded?",
+            code: "class Demo {\n    final void show() { }\n    final void show(int x) { }\n}",
+            options: [
+                "No, final methods cannot be overloaded",
+                "Yes, overloading is allowed",
+                "Only if the method is static",
+                "No, compilation error"
+            ],
+            correct: 1,
+            explanation: "Overloading is based on parameter list, not the final modifier. Final methods can be overloaded."
+        },
+        { // 9
+            text: "What is the output?",
+            code: "class Parent {\n    final void display() { System.out.print(\"Parent \"); }\n}\nclass Child extends Parent {\n    void display() { System.out.print(\"Child \"); }\n}\n// in main: new Child().display();",
+            options: ["Parent ", "Child ", "Compilation error", "Parent Child"],
+            correct: 2,
+            explanation: "Child cannot override final method display() → compilation error."
+        },
+        { // 10
+            text: "What is a 'static final' variable called?",
+            code: "static final int MAX = 100;",
+            options: [
+                "Instance variable",
+                "Constant",
+                "Local variable",
+                "Dynamic variable"
+            ],
+            correct: 1,
+            explanation: "static final variables are constants — they belong to the class and cannot be changed."
+        },
+        { // 11
+            text: "Can a final class have abstract methods?",
+            code: "final class Demo { abstract void show(); }",
+            options: [
+                "Yes, final classes can have abstract methods",
+                "No, final classes cannot have abstract methods",
+                "Yes, but only if class is abstract",
+                "Only if the method is static"
+            ],
+            correct: 1,
+            explanation: "A final class cannot have abstract methods because it cannot be extended to provide implementation."
+        },
+        { // 12
+            text: "What is the output?",
+            code: "class Test {\n    static final int X;\n    static { X = 20; }\n    public static void main(String[] args) {\n        System.out.println(X);\n    }\n}",
+            options: ["0", "20", "Compilation error", "null"],
+            correct: 1,
+            explanation: "static final variables can be initialized in static blocks."
+        },
+        { // 13
+            text: "Can a final variable be changed using reflection?",
+            code: "// Final variable x = 10;",
+            options: [
+                "No, absolutely impossible",
+                "Yes, using reflection API but not recommended",
+                "Yes, using direct assignment",
+                "No, it causes runtime error"
+            ],
+            correct: 1,
+            explanation: "Reflection can change final variables, but it's not recommended and breaks the contract."
+        },
+        { // 14
+            text: "What is the output?",
+            code: "class Test {\n    final int x;\n    Test() { x = 5; }\n    Test(int y) { x = y; }\n    public static void main(String[] args) {\n        Test t = new Test(10);\n        System.out.println(t.x);\n    }\n}",
+            options: ["5", "10", "Compilation error", "0"],
+            correct: 1,
+            explanation: "The constructor Test(int y) initializes x to 10. Both constructors initialize the blank final."
+        },
+        { // 15
+            text: "Can we declare a final method in an interface?",
+            code: "interface Demo { final void show(); }",
+            options: [
+                "Yes, all interface methods are final",
+                "No, interface methods cannot be final",
+                "Yes, but only if static",
+                "Only in Java 8+"
+            ],
+            correct: 1,
+            explanation: "Interface methods cannot be final because they are meant to be overridden."
+        },
+        { // 16
+            text: "What happens when a final variable is declared without initialization?",
+            code: "class Demo { final int x; }",
+            options: [
+                "Compilation error if not initialized in constructor",
+                "It gets default value 0",
+                "It gets null value",
+                "It's allowed for static variables only"
+            ],
+            correct: 0,
+            explanation: "Blank final variables must be initialized in every constructor, otherwise compilation error."
+        },
+        { // 17
+            text: "What is the output?",
+            code: "class Test {\n    final int x = 5;\n    Test() { x = 10; }\n    public static void main(String[] args) {\n        new Test();\n    }\n}",
+            options: ["5", "10", "Compilation error", "Runtime error"],
+            correct: 2,
+            explanation: "Final variable x is already initialized at declaration, cannot be reassigned in constructor → compilation error."
+        },
+        { // 18
+            text: "Which of these is TRUE about final and static?",
+            code: "static final int MAX = 100;",
+            options: [
+                "It's a class-level constant",
+                "It's an instance-level constant",
+                "It can be changed in subclasses",
+                "It's stored in heap memory"
+            ],
+            correct: 0,
+            explanation: "static final variables are class-level constants, stored in method area, shared by all instances."
+        },
+        { // 19
+            text: "Can a final parameter be modified inside a method?",
+            code: "void show(final int x) { x = 10; }",
+            options: [
+                "Yes, parameters can be modified",
+                "No, compilation error",
+                "Yes, but only in static methods",
+                "No, runtime exception"
+            ],
+            correct: 1,
+            explanation: "Final parameters cannot be reassigned inside the method → compilation error."
+        },
+        { // 20
+            text: "What is the purpose of the final keyword?",
+            code: "// Choose the best answer",
+            options: [
+                "To make classes immutable",
+                "To prevent inheritance, overriding, or reassignment",
+                "To improve performance",
+                "To enable thread safety"
+            ],
+            correct: 1,
+            explanation: "The final keyword prevents: variable reassignment, method overriding, and class inheritance."
+        }
+    ];
+
+    const TOTAL = questions.length;
+    document.getElementById("totalQ").innerText = TOTAL;
+    document.getElementById("totalQ2").innerText = TOTAL;
+
+    let userAnswers = new Array(TOTAL).fill(-1);
+    let quizSubmitted = false;
+
+    function renderQuiz() {
+        const container = document.getElementById("questionsContainer");
+        if (!container) return;
+        container.innerHTML = "";
+
+        questions.forEach((q, idx) => {
+            const card = document.createElement("div");
+            card.className = "q-card";
+            card.dataset.qidx = idx;
+
+            const header = document.createElement("div");
+            header.className = "q-header";
+            header.innerHTML = `<span class="q-num">Q${idx+1}</span><span class="q-text">${q.text}</span>`;
+            card.appendChild(header);
+
+            if (q.code) {
+                const codeDiv = document.createElement("div");
+                codeDiv.className = "code-block";
+                codeDiv.innerHTML = q.code.replace(/\n/g, '<br>');
+                card.appendChild(codeDiv);
+            }
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options";
+
+            q.options.forEach((opt, optIdx) => {
+                const wrap = document.createElement("div");
+                wrap.className = "option";
+
+                const radio = document.createElement("input");
+                radio.type = "radio";
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+
+                radio.addEventListener("change", (function(qIdx, oIdx) {
+                    return function() {
+                        if (quizSubmitted) {
+                            quizSubmitted = false;
+                            document.getElementById("resultPanel").style.display = "none";
+                            document.querySelectorAll(".feedback").forEach(fb => fb.remove());
+                        }
+                        userAnswers[qIdx] = oIdx;
+                        updateStats();
+                        const fbDiv = card.querySelector(".feedback");
+                        if (fbDiv && !quizSubmitted) fbDiv.remove();
+                    };
+                })(idx, optIdx));
+
+                const label = document.createElement("label");
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+
+                wrap.appendChild(radio);
+                wrap.appendChild(label);
+                optionsDiv.appendChild(wrap);
+            });
+
+            card.appendChild(optionsDiv);
+
+            const fb = document.createElement("div");
+            fb.className = "feedback fb-neutral";
+            fb.style.display = "none";
+            card.appendChild(fb);
+
+            container.appendChild(card);
+        });
+
+        updateStats();
+    }
+
+    function updateStats() {
+        const attempted = userAnswers.filter(v => v !== -1).length;
+        document.getElementById("attemptedCount").innerText = attempted;
+        if (quizSubmitted) {
+            let correct = 0;
+            for (let i = 0; i < TOTAL; i++) {
+                if (userAnswers[i] === questions[i].correct) correct++;
+            }
+            document.getElementById("scoreDisplay").innerText = correct;
+        } else {
+            document.getElementById("scoreDisplay").innerText = "0";
+        }
+    }
+
+    function submitQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        const cards = document.querySelectorAll(".q-card");
+
+        for (let i = 0; i < TOTAL; i++) {
+            const selected = userAnswers[i];
+            const isCorrect = (selected === questions[i].correct);
+            if (isCorrect && selected !== -1) correctCount++;
+
+            if (cards[i]) {
+                let fbDiv = cards[i].querySelector(".feedback");
+                if (!fbDiv) {
+                    fbDiv = document.createElement("div");
+                    fbDiv.className = "feedback";
+                    cards[i].appendChild(fbDiv);
+                }
+
+                const qd = questions[i];
+                const correctLetter = String.fromCharCode(65 + qd.correct);
+                const correctAns = qd.options[qd.correct];
+                let msg = "", cls = "";
+
+                if (selected === -1) {
+                    msg = `⚠️ Not answered. Correct: ${correctLetter}. ${correctAns}. ${qd.explanation}`;
+                    cls = "fb-wrong";
+                } else if (isCorrect) {
+                    msg = `✅ Correct! ${qd.explanation}`;
+                    cls = "fb-correct";
+                } else {
+                    const chosenLetter = String.fromCharCode(65 + selected);
+                    msg = `❌ Wrong. You chose ${chosenLetter}. ${qd.options[selected]}. Correct: ${correctLetter}. ${correctAns}. ${qd.explanation}`;
+                    cls = "fb-wrong";
+                }
+
+                fbDiv.innerHTML = `<span>💡</span> ${msg}`;
+                fbDiv.className = `feedback ${cls}`;
+                fbDiv.style.display = "flex";
+            }
+        }
+
+        document.getElementById("scoreDisplay").innerText = correctCount;
+        const percent = Math.round((correctCount / TOTAL) * 100);
+        const panel = document.getElementById("resultPanel");
+
+        let msg = "";
+        if (correctCount === TOTAL) msg = "🏆 Perfect! You're a final keyword Master!";
+        else if (percent >= 80) msg = "🎉 Excellent! You have a solid grasp of final.";
+        else if (percent >= 60) msg = "📚 Good! Review blank final and constructor initialization.";
+        else msg = "📖 Keep practicing! Focus on final vs static final and inheritance restrictions.";
+
+        panel.innerHTML = `✨ Score: ${correctCount}/${TOTAL} (${percent}%)<br>${msg}<br>🔄 Click "Reset Quiz" to try again.`;
+        panel.style.display = "block";
+        updateStats();
+    }
+
+    function resetQuiz() {
+        userAnswers.fill(-1);
+        quizSubmitted = false;
+        document.getElementById("resultPanel").style.display = "none";
+        renderQuiz();
+        updateStats();
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", submitQuiz);
+    document.getElementById("resetBtn").addEventListener("click", resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>
