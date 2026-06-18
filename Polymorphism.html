@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Polymorphism MCQ | Complete Quiz</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Inter', system-ui, sans-serif;
+            background: linear-gradient(145deg, #0a1a2e 0%, #1a3a5a 100%);
+            min-height: 100vh;
+            padding: 1.8rem 1rem;
+        }
+
+        .quiz-wrapper {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* header */
+        .hero {
+            background: linear-gradient(135deg, #0a1a2e, #0d2a3f);
+            border-radius: 2rem;
+            padding: 1.5rem 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 4px solid #60a5fa;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: #bfdbfe;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero h1 span {
+            background: #60a5fa;
+            color: #0a1a2e;
+            padding: 0.1rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1.8rem;
+        }
+
+        .hero p {
+            color: #93b4d9;
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        .badge-item {
+            background: #1a3a5a;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            color: #bfdbfe;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* stats */
+        .stats {
+            background: #0a1a2ecc;
+            backdrop-filter: blur(6px);
+            border-radius: 2rem;
+            padding: 0.7rem 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 1.8rem;
+            border: 1px solid #60a5fa55;
+        }
+
+        .stat-item {
+            background: #0a1a2e;
+            padding: 0.3rem 1.2rem;
+            border-radius: 3rem;
+            color: #bfdbfe;
+            font-weight: 600;
+        }
+
+        .stat-item span:first-child {
+            color: #60a5fa;
+            margin-right: 6px;
+        }
+
+        .reset-btn {
+            background: #60a5fa;
+            border: none;
+            padding: 0.4rem 1.4rem;
+            border-radius: 3rem;
+            font-weight: bold;
+            color: #0a1a2e;
+            cursor: pointer;
+            transition: 0.2s;
+            font-size: 0.85rem;
+        }
+
+        .reset-btn:hover {
+            background: #3b82f6;
+            transform: scale(0.96);
+        }
+
+        /* question cards */
+        .q-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .q-card {
+            background: #fffffffb;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.8rem;
+            border-left: 7px solid #60a5fa;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+            transition: 0.2s;
+        }
+
+        .q-header {
+            display: flex;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 0.8rem;
+        }
+
+        .q-num {
+            background: #dbeafe;
+            color: #1e40af;
+            padding: 0.15rem 0.9rem;
+            border-radius: 30px;
+            font-weight: 800;
+            font-size: 0.75rem;
+        }
+
+        .q-text {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0a1a2e;
+            line-height: 1.5;
+        }
+
+        .code-block {
+            background: #0a1a2e;
+            color: #bfdbfe;
+            padding: 0.7rem 1.2rem;
+            border-radius: 1rem;
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 0.8rem;
+            margin: 10px 0 14px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            border-left: 3px solid #60a5fa;
+        }
+
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 8px 0 10px;
+        }
+
+        .option {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: #f8fafd;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.12s;
+            border: 1px solid #e2e6ec;
+        }
+
+        .option:hover {
+            background: #dbeafe;
+            border-color: #60a5fa;
+        }
+
+        input[type="radio"] {
+            accent-color: #60a5fa;
+            width: 17px;
+            height: 17px;
+            cursor: pointer;
+            flex-shrink: 0;
+        }
+
+        .option label {
+            font-weight: 500;
+            color: #0a1a2e;
+            cursor: pointer;
+            flex: 1;
+            font-size: 0.9rem;
+        }
+
+        .feedback {
+            margin-top: 12px;
+            padding: 10px 16px;
+            border-radius: 1rem;
+            font-size: 0.82rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .fb-correct {
+            background: #def3e2;
+            color: #136b3a;
+            border-left: 4px solid #2b9348;
+        }
+
+        .fb-wrong {
+            background: #ffe6e5;
+            color: #b91c1c;
+            border-left: 4px solid #e53e3e;
+        }
+
+        .fb-neutral {
+            background: #f0f4f9;
+            color: #2c5a66;
+        }
+
+        .action-area {
+            text-align: center;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .submit-btn {
+            background: linear-gradient(100deg, #2563eb, #60a5fa);
+            border: none;
+            padding: 0.9rem 2.5rem;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #ffffff;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.2s;
+            width: 100%;
+            max-width: 280px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(100deg, #1d4ed8, #3b82f6);
+        }
+
+        .result-panel {
+            background: #dbeafedd;
+            backdrop-filter: blur(8px);
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: bold;
+            color: #0a1a2e;
+            margin-top: 0.5rem;
+            border: 1px solid #60a5fa;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.7rem;
+            color: #93b4d9;
+        }
+
+        @media (max-width: 650px) {
+            .q-card {
+                padding: 1rem;
+            }
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-wrapper">
+    <div class="hero">
+        <h1>🔄 Java Polymorphism <span>MCQ</span></h1>
+        <p>Overloading · Overriding · Runtime Polymorphism · Compile-time Polymorphism · Method Binding</p>
+        <div class="badge-row">
+            <span class="badge-item">Method Overloading</span>
+            <span class="badge-item">Method Overriding</span>
+            <span class="badge-item">Runtime Polymorphism</span>
+            <span class="badge-item">Compile-time Polymorphism</span>
+            <span class="badge-item">Dynamic Method Dispatch</span>
+            <span class="badge-item">Virtual Methods</span>
+            <span class="badge-item">Upcasting</span>
+            <span class="badge-item">Downcasting</span>
+        </div>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item"><span>🎯 Score</span> <span id="scoreDisplay">0</span> / <span id="totalQ">22</span></div>
+        <div class="stat-item"><span>✏️ Attempted</span> <span id="attemptedCount">0</span> / <span id="totalQ2">22</span></div>
+        <button class="reset-btn" id="resetBtn">⟳ Reset Quiz</button>
+    </div>
+
+    <div id="questionsContainer" class="q-grid"></div>
+
+    <div class="action-area">
+        <button class="submit-btn" id="submitBtn">✅ Submit & Check</button>
+    </div>
+    <div id="resultPanel" class="result-panel"></div>
+    <footer>💡 All questions focus on polymorphism — the ability of an object to take many forms.</footer>
+</div>
+
+<script>
+    // ==================== 22 MCQs on Polymorphism ====================
+    const questions = [
+        { // 1
+            text: "What is polymorphism in Java?",
+            code: "// Choose the best definition",
+            options: [
+                "The ability to inherit from multiple classes",
+                "The ability of an object to take many forms",
+                "The ability to create multiple objects",
+                "The ability to hide data"
+            ],
+            correct: 1,
+            explanation: "Polymorphism means 'many forms' — the ability of an object to take many forms through method overriding and overloading."
+        },
+        { // 2
+            text: "What are the two types of polymorphism in Java?",
+            code: "// Types of polymorphism",
+            options: [
+                "Static and Dynamic",
+                "Compile-time and Runtime",
+                "Method and Class",
+                "Abstract and Concrete"
+            ],
+            correct: 1,
+            explanation: "Compile-time polymorphism (method overloading) and Runtime polymorphism (method overriding)."
+        },
+        { // 3
+            text: "Which is compile-time polymorphism?",
+            code: "class Demo {\n    void show(int x) { }\n    void show(String s) { }\n}",
+            options: [
+                "Method Overriding",
+                "Method Overloading",
+                "Constructor Chaining",
+                "Inheritance"
+            ],
+            correct: 1,
+            explanation: "Method overloading is compile-time polymorphism because the method to call is determined at compile time."
+        },
+        { // 4
+            text: "Which is runtime polymorphism?",
+            code: "class Parent { void show() { } }\nclass Child extends Parent { void show() { } }",
+            options: [
+                "Method Overloading",
+                "Method Overriding",
+                "Constructor Overloading",
+                "Static Methods"
+            ],
+            correct: 1,
+            explanation: "Method overriding is runtime polymorphism because the method to call is determined at runtime based on object type."
+        },
+        { // 5
+            text: "What is the output?",
+            code: "class Animal {\n    void sound() { System.out.print(\"Animal \"); }\n}\nclass Dog extends Animal {\n    void sound() { System.out.print(\"Dog \"); }\n}\n// in main: Animal a = new Dog();\na.sound();",
+            options: ["Animal ", "Dog ", "Animal Dog", "Compilation error"],
+            correct: 1,
+            explanation: "Runtime polymorphism: method called depends on object type (Dog), not reference type (Animal) → 'Dog '."
+        },
+        { // 6
+            text: "What is the output?",
+            code: "class Parent {\n    void show() { System.out.print(\"Parent \"); }\n}\nclass Child extends Parent {\n    void show() { System.out.print(\"Child \"); }\n}\n// in main: Parent p = new Parent();\np.show();",
+            options: ["Parent ", "Child ", "Parent Child", "Compilation error"],
+            correct: 0,
+            explanation: "p refers to Parent object, so Parent's show() is called → 'Parent '."
+        },
+        { // 7
+            text: "What is method overloading?",
+            code: "void add(int a, int b) { }\nvoid add(double a, double b) { }",
+            options: [
+                "Same method name with different parameters",
+                "Same method name with same parameters",
+                "Different method names",
+                "Methods with different return types only"
+            ],
+            correct: 0,
+            explanation: "Overloading means multiple methods with the same name but different parameter lists."
+        },
+        { // 8
+            text: "Can we overload methods by changing return type only?",
+            code: "int show() { return 0; }\nvoid show() { }",
+            options: [
+                "Yes, it's valid overloading",
+                "No, causes compilation error",
+                "Yes, but only in subclasses",
+                "Only with primitive types"
+            ],
+            correct: 1,
+            explanation: "Overloading requires different parameter lists. Changing only return type is not overloading and causes compilation error."
+        },
+        { // 9
+            text: "What is the output?",
+            code: "class A {\n    void print() { System.out.print(\"A \"); }\n}\nclass B extends A {\n    void print() { System.out.print(\"B \"); }\n}\n// in main:\nA obj1 = new A();\nA obj2 = new B();\nobj1.print();\nobj2.print();",
+            options: ["A A", "A B", "B B", "Compilation error"],
+            correct: 1,
+            explanation: "obj1 is A → prints 'A', obj2 is B but referenced as A → runtime calls B's print → 'A B'."
+        },
+        { // 10
+            text: "What is dynamic method dispatch?",
+            code: "// Mechanism used in runtime polymorphism",
+            options: [
+                "Resolving method calls at compile time",
+                "Resolving method calls at runtime based on object",
+                "Resolving method calls based on return type",
+                "Resolving method calls based on parameters"
+            ],
+            correct: 1,
+            explanation: "Dynamic method dispatch is the mechanism where method calls are resolved at runtime based on actual object type."
+        },
+        { // 11
+            text: "Can static methods be overridden?",
+            code: "class Parent { static void show() { } }\nclass Child extends Parent { static void show() { } }",
+            options: [
+                "Yes, static methods can be overridden",
+                "No, they are hidden, not overridden",
+                "Yes, but only if final",
+                "No, compilation error"
+            ],
+            correct: 1,
+            explanation: "Static methods are hidden, not overridden. This is method hiding, not polymorphism."
+        },
+        { // 12
+            text: "What is the output?",
+            code: "class Parent {\n    static void show() { System.out.print(\"Parent \"); }\n}\nclass Child extends Parent {\n    static void show() { System.out.print(\"Child \"); }\n}\n// in main: Parent p = new Child();\np.show();",
+            options: ["Parent ", "Child ", "Parent Child", "Compilation error"],
+            correct: 0,
+            explanation: "Static methods are resolved at compile time based on reference type (Parent), not object type → 'Parent '."
+        },
+        { // 13
+            text: "What is upcasting?",
+            code: "Parent p = new Child(); // This is called:",
+            options: [
+                "Downcasting",
+                "Upcasting",
+                "Type conversion",
+                "Method overloading"
+            ],
+            correct: 1,
+            explanation: "Upcasting is assigning a subclass object to a superclass reference."
+        },
+        { // 14
+            text: "What is the output?",
+            code: "class Animal {\n    void eat() { System.out.print(\"Animal eats \"); }\n}\nclass Cat extends Animal {\n    void eat() { System.out.print(\"Cat eats \"); }\n}\n// in main:\nAnimal a = new Cat();\n((Cat) a).eat();",
+            options: ["Animal eats ", "Cat eats ", "Compilation error", "ClassCastException"],
+            correct: 1,
+            explanation: "After downcasting to Cat, Cat's eat() is called → 'Cat eats '."
+        },
+        { // 15
+            text: "Can a final method be overridden?",
+            code: "class Parent { final void show() { } }\nclass Child extends Parent { void show() { } }",
+            options: [
+                "Yes, final methods can be overridden",
+                "No, compilation error",
+                "Yes, but only in the same package",
+                "Only if the method is static"
+            ],
+            correct: 1,
+            explanation: "Final methods cannot be overridden. Trying to override causes compilation error."
+        },
+        { // 16
+            text: "What is the output?",
+            code: "class Vehicle {\n    void start() { System.out.print(\"Vehicle \"); }\n}\nclass Car extends Vehicle {\n    void start() { System.out.print(\"Car \"); }\n    void honk() { System.out.print(\"Honk \"); }\n}\n// in main:\nVehicle v = new Car();\nv.start();\n// v.honk(); // Would this compile?",
+            options: ["Vehicle ", "Car ", "Compilation error on v.honk()", "Car Honk"],
+            correct: 2,
+            explanation: "v is Vehicle reference, so only Vehicle methods are accessible. honk() is not accessible without downcasting → compilation error."
+        },
+        { // 17
+            text: "What is covariant return type?",
+            code: "class Parent { Parent get() { return this; } }\nclass Child extends Parent { Child get() { return this; } }",
+            options: [
+                "Overriding method returns a subclass type",
+                "Overriding method returns a superclass type",
+                "Method overloading with different return types",
+                "Static method returning object"
+            ],
+            correct: 0,
+            explanation: "Covariant return type allows overriding method to return a subclass of the return type declared in parent."
+        },
+        { // 18
+            text: "What is the output?",
+            code: "class A {\n    void print() { System.out.print(\"A \"); }\n}\nclass B extends A {\n    void print() { System.out.print(\"B \"); }\n}\nclass C extends B {\n    void print() { System.out.print(\"C \"); }\n}\n// in main:\nA obj = new C();\nobj.print();",
+            options: ["A ", "B ", "C ", "Compilation error"],
+            correct: 2,
+            explanation: "Runtime polymorphism: object is C, so C's print() is called → 'C '."
+        },
+        { // 19
+            text: "Can we overload static and instance methods?",
+            code: "class Demo {\n    static void show() { }\n    void show(int x) { }\n}",
+            options: [
+                "No, compilation error",
+                "Yes, they can be overloaded",
+                "Yes, but only static method can be overloaded",
+                "No, they must have different names"
+            ],
+            correct: 1,
+            explanation: "Static and instance methods can be overloaded as long as parameter lists are different."
+        },
+        { // 20
+            text: "What is the output?",
+            code: "class Parent {\n    void display() { System.out.print(\"Parent \"); }\n}\nclass Child extends Parent {\n    void display() throws Exception { System.out.print(\"Child \"); }\n}",
+            options: ["Parent ", "Child ", "Compilation error", "Runtime exception"],
+            correct: 2,
+            explanation: "Overriding method cannot throw checked exceptions broader than parent. This causes compilation error."
+        },
+        { // 21
+            text: "Which of these is TRUE about overloading?",
+            code: "// Overloading rules",
+            options: [
+                "Methods must have different names",
+                "Methods must have different parameter lists",
+                "Methods must have different return types",
+                "Methods must be in different classes"
+            ],
+            correct: 1,
+            explanation: "Overloading requires methods to have different parameter lists (number, type, or order)."
+        },
+        { // 22
+            text: "What is the output?",
+            code: "class X {\n    void test() { System.out.print(\"X \"); }\n}\nclass Y extends X {\n    void test() { System.out.print(\"Y \"); }\n}\nclass Z extends Y {\n    void test() { System.out.print(\"Z \"); }\n}\n// in main:\nX x = new Z();\nY y = (Y) x;\ny.test();",
+            options: ["X ", "Y ", "Z ", "Compilation error"],
+            correct: 2,
+            explanation: "Downcasting to Y doesn't change the object type. Object is still Z, so Z's test() is called → 'Z '."
+        }
+    ];
+
+    const TOTAL = questions.length;
+    document.getElementById("totalQ").innerText = TOTAL;
+    document.getElementById("totalQ2").innerText = TOTAL;
+
+    let userAnswers = new Array(TOTAL).fill(-1);
+    let quizSubmitted = false;
+
+    function renderQuiz() {
+        const container = document.getElementById("questionsContainer");
+        if (!container) return;
+        container.innerHTML = "";
+
+        questions.forEach((q, idx) => {
+            const card = document.createElement("div");
+            card.className = "q-card";
+            card.dataset.qidx = idx;
+
+            const header = document.createElement("div");
+            header.className = "q-header";
+            header.innerHTML = `<span class="q-num">Q${idx+1}</span><span class="q-text">${q.text}</span>`;
+            card.appendChild(header);
+
+            if (q.code) {
+                const codeDiv = document.createElement("div");
+                codeDiv.className = "code-block";
+                codeDiv.innerHTML = q.code.replace(/\n/g, '<br>');
+                card.appendChild(codeDiv);
+            }
+
+            const optionsDiv = document.createElement("div");
+            optionsDiv.className = "options";
+
+            q.options.forEach((opt, optIdx) => {
+                const wrap = document.createElement("div");
+                wrap.className = "option";
+
+                const radio = document.createElement("input");
+                radio.type = "radio";
+                radio.name = `q_${idx}`;
+                radio.value = optIdx;
+                radio.id = `q${idx}_opt${optIdx}`;
+                if (userAnswers[idx] === optIdx) radio.checked = true;
+
+                radio.addEventListener("change", (function(qIdx, oIdx) {
+                    return function() {
+                        if (quizSubmitted) {
+                            quizSubmitted = false;
+                            document.getElementById("resultPanel").style.display = "none";
+                            document.querySelectorAll(".feedback").forEach(fb => fb.remove());
+                        }
+                        userAnswers[qIdx] = oIdx;
+                        updateStats();
+                        const fbDiv = card.querySelector(".feedback");
+                        if (fbDiv && !quizSubmitted) fbDiv.remove();
+                    };
+                })(idx, optIdx));
+
+                const label = document.createElement("label");
+                label.htmlFor = `q${idx}_opt${optIdx}`;
+                label.innerText = `${String.fromCharCode(65+optIdx)}. ${opt}`;
+
+                wrap.appendChild(radio);
+                wrap.appendChild(label);
+                optionsDiv.appendChild(wrap);
+            });
+
+            card.appendChild(optionsDiv);
+
+            const fb = document.createElement("div");
+            fb.className = "feedback fb-neutral";
+            fb.style.display = "none";
+            card.appendChild(fb);
+
+            container.appendChild(card);
+        });
+
+        updateStats();
+    }
+
+    function updateStats() {
+        const attempted = userAnswers.filter(v => v !== -1).length;
+        document.getElementById("attemptedCount").innerText = attempted;
+        if (quizSubmitted) {
+            let correct = 0;
+            for (let i = 0; i < TOTAL; i++) {
+                if (userAnswers[i] === questions[i].correct) correct++;
+            }
+            document.getElementById("scoreDisplay").innerText = correct;
+        } else {
+            document.getElementById("scoreDisplay").innerText = "0";
+        }
+    }
+
+    function submitQuiz() {
+        quizSubmitted = true;
+        let correctCount = 0;
+        const cards = document.querySelectorAll(".q-card");
+
+        for (let i = 0; i < TOTAL; i++) {
+            const selected = userAnswers[i];
+            const isCorrect = (selected === questions[i].correct);
+            if (isCorrect && selected !== -1) correctCount++;
+
+            if (cards[i]) {
+                let fbDiv = cards[i].querySelector(".feedback");
+                if (!fbDiv) {
+                    fbDiv = document.createElement("div");
+                    fbDiv.className = "feedback";
+                    cards[i].appendChild(fbDiv);
+                }
+
+                const qd = questions[i];
+                const correctLetter = String.fromCharCode(65 + qd.correct);
+                const correctAns = qd.options[qd.correct];
+                let msg = "", cls = "";
+
+                if (selected === -1) {
+                    msg = `⚠️ Not answered. Correct: ${correctLetter}. ${correctAns}. ${qd.explanation}`;
+                    cls = "fb-wrong";
+                } else if (isCorrect) {
+                    msg = `✅ Correct! ${qd.explanation}`;
+                    cls = "fb-correct";
+                } else {
+                    const chosenLetter = String.fromCharCode(65 + selected);
+                    msg = `❌ Wrong. You chose ${chosenLetter}. ${qd.options[selected]}. Correct: ${correctLetter}. ${correctAns}. ${qd.explanation}`;
+                    cls = "fb-wrong";
+                }
+
+                fbDiv.innerHTML = `<span>💡</span> ${msg}`;
+                fbDiv.className = `feedback ${cls}`;
+                fbDiv.style.display = "flex";
+            }
+        }
+
+        document.getElementById("scoreDisplay").innerText = correctCount;
+        const percent = Math.round((correctCount / TOTAL) * 100);
+        const panel = document.getElementById("resultPanel");
+
+        let msg = "";
+        if (correctCount === TOTAL) msg = "🏆 Perfect! You're a Polymorphism Master!";
+        else if (percent >= 80) msg = "🎉 Excellent! You have a solid grasp of polymorphism.";
+        else if (percent >= 60) msg = "📚 Good! Review overriding vs overloading and runtime binding.";
+        else msg = "📖 Keep practicing! Focus on method binding, upcasting, and downcasting.";
+
+        panel.innerHTML = `✨ Score: ${correctCount}/${TOTAL} (${percent}%)<br>${msg}<br>🔄 Click "Reset Quiz" to try again.`;
+        panel.style.display = "block";
+        updateStats();
+    }
+
+    function resetQuiz() {
+        userAnswers.fill(-1);
+        quizSubmitted = false;
+        document.getElementById("resultPanel").style.display = "none";
+        renderQuiz();
+        updateStats();
+    }
+
+    document.getElementById("submitBtn").addEventListener("click", submitQuiz);
+    document.getElementById("resetBtn").addEventListener("click", resetQuiz);
+
+    renderQuiz();
+</script>
+</body>
+</html>
